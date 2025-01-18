@@ -56,7 +56,7 @@ const RecommendationCard: React.FC<VideoCardProps> = ({ item }) => {
         </div>
         <p className="text-gray-500 text-xs">{item.snippet.channelTitle}</p>
         <p className="text-gray-500 text-xs">
-          {value_converter(item.statistics.viewCount)} Views &bull;{" "}
+          {value_converter(1000000)} Views &bull;{" "}
           {moment(item?.snippet.publishedAt).fromNow()}
         </p>
       </div>

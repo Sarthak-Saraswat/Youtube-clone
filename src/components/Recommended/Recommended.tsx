@@ -3,11 +3,13 @@ import { getVideo } from "@/utils/apiService";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import RecommendationCard from "../RecommendationCard/RecommendationCard";
+import { dummyVideoItem } from "@/utils/fakeData";
 
 const Recommended = () => {
   const { categoryId } = useParams();
   
   const [apiData, setApiData] = useState<VideoItem[]>([]);
+  const [fakeData, setFakeData] = useState<VideoItem[]>(dummyVideoItem.items);
 
   const [, setError] = useState<null | string>(null);
 
@@ -33,7 +35,7 @@ const Recommended = () => {
 
   return (
     <div className=" flex flex-col w-full lg:basis-1/3">
-      {apiData?.map((item, index) => (
+      {fakeData?.map((item, index) => (
         <RecommendationCard key={index} item={item} />
       ))}
     </div>

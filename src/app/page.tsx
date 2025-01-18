@@ -3,12 +3,14 @@ import VideoCard from "@/components/VideoCard/VideoCard";
 import { SidebarToggleContext } from "@/context/SidebarContext/SidebarContext";
 import { VideoItem } from "@/types";
 import { getVideo } from "@/utils/apiService";
+import { dummyVideoItem } from "@/utils/fakeData";
 import { useContext, useEffect, useState } from "react";
 
 const HomePage = () => {
   const { category } = useContext(SidebarToggleContext);
 
   const [data, setData] = useState<VideoItem[]>([]);
+  const [fakeData, setFakeData] = useState<VideoItem[]>(dummyVideoItem.items);
 
   const [, setError] = useState<null | string>(null);
 
@@ -31,7 +33,7 @@ const HomePage = () => {
 
   return (
     <div className="grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-x-4 gap-y-8 mt-4">
-      {data.map((item, index) => (
+      {fakeData.map((item, index) => (
         <VideoCard item={item} key={index} />
       ))}
     </div>

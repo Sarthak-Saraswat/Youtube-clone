@@ -70,13 +70,19 @@ const PlayVideo = () => {
 
   return (
     <div className="md:col-span-2 flex flex-col space-y-4 w-full min-w-72">
-      <iframe
+      {/* <iframe
         src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
         className="w-full aspect-video"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
-      ></iframe>
+      ></iframe> */}
+      <video
+        className="w-full aspect-video"
+        autoPlay
+        controls
+        src="/assets/video.mp4"
+      ></video>
 
       <h3 className="text-xl font-semibold">{apiData?.snippet.title}</h3>
 
@@ -148,7 +154,7 @@ const PlayVideo = () => {
               onClick={toggleExpand}
               className="ml-2 text-gray-700 underline hover:no-underline"
             >
-             ... more
+              ... more
             </button>
           </p>
         </div>
